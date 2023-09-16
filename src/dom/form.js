@@ -3,6 +3,7 @@ import { createAsteriskIcon, createInvalidDefaultIcon } from './images';
 
 const createTitle = () => {
   const title = document.createElement('p');
+  title.classList.add('title');
   title.textContent = 'User Registration';
 
   return title;
@@ -24,51 +25,43 @@ const createEmailContainer = () => {
   return container;
 };
 
-const createLocationContainer = () => {
-  const createCountryContainer = () => {
-    const label = document.createElement('label');
-    label.for = 'country';
-    label.textContent = 'Country';
-    label.appendChild(createAsteriskIcon());
-    const option1 = document.createElement('option');
-    option1.value = 'ch';
-    option1.textContent = 'Switzerland';
-    const option2 = document.createElement('option');
-    option2.value = 'fr';
-    option2.textContent = 'France';
-    const option3 = document.createElement('option');
-    option3.value = 'us';
-    option3.textContent = 'United States';
-    const select = document.createElement('select');
-    select.id = 'country';
-    select.name = 'user-country';
-    appendChildren(select, option1, option2, option3);
-    const container = document.createElement('div');
-    container.classList.add('country');
-    appendChildren(container, label, select);
-
-    return container;
-  };
-
-  const createZipContainer = () => {
-    const label = document.createElement('label');
-    label.for = 'zip';
-    label.textContent = 'Zip Code';
-    label.appendChild(createAsteriskIcon());
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.id = 'zip';
-    input.name = 'user-zip';
-    const container = document.createElement('div');
-    container.classList.add('zip');
-    appendChildren(container, label, input);
-
-    return container;
-  };
-
+const createCountryContainer = () => {
+  const label = document.createElement('label');
+  label.for = 'country';
+  label.textContent = 'Country';
+  label.appendChild(createAsteriskIcon());
+  const option1 = document.createElement('option');
+  option1.value = 'ch';
+  option1.textContent = 'Switzerland';
+  const option2 = document.createElement('option');
+  option2.value = 'fr';
+  option2.textContent = 'France';
+  const option3 = document.createElement('option');
+  option3.value = 'us';
+  option3.textContent = 'United States';
+  const select = document.createElement('select');
+  select.id = 'country';
+  select.name = 'user-country';
+  appendChildren(select, option1, option2, option3);
   const container = document.createElement('div');
-  container.classList.add('location');
-  appendChildren(container, createCountryContainer(), createZipContainer());
+  container.classList.add('country');
+  appendChildren(container, label, select);
+
+  return container;
+};
+
+const createZipContainer = () => {
+  const label = document.createElement('label');
+  label.for = 'zip';
+  label.textContent = 'Zip Code';
+  label.appendChild(createAsteriskIcon());
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.id = 'zip';
+  input.name = 'user-zip';
+  const container = document.createElement('div');
+  container.classList.add('zip');
+  appendChildren(container, label, input);
 
   return container;
 };
@@ -82,6 +75,9 @@ const createPasswordContainer = () => {
   input.type = 'text';
   input.id = 'password';
   input.name = 'user-password';
+  const inputContainer = document.createElement('div');
+  inputContainer.classList.add('input-container');
+  appendChildren(inputContainer, label, input);
   const requirement1Text = document.createElement('p');
   requirement1Text.textContent = 'At least 8 characters';
   const requirement1 = document.createElement('div');
@@ -98,17 +94,18 @@ const createPasswordContainer = () => {
   requirement4Text.textContent = 'At least one number';
   const requirement4 = document.createElement('div');
   appendChildren(requirement4, createInvalidDefaultIcon(), requirement4Text);
-  const container = document.createElement('div');
-  container.classList.add('password');
+  const requirementContainer = document.createElement('div');
+  requirementContainer.classList.add('requirement-container');
   appendChildren(
-    container,
-    label,
-    input,
+    requirementContainer,
     requirement1,
     requirement2,
     requirement3,
     requirement4
   );
+  const container = document.createElement('div');
+  container.classList.add('password');
+  appendChildren(container, inputContainer, requirementContainer);
 
   return container;
 };
@@ -131,6 +128,7 @@ const createConfirmPasswordContainer = () => {
 
 const createSubmitBtn = () => {
   const btn = document.createElement('button');
+  btn.classList.add('submit');
   btn.type = 'submit';
   btn.textContent = 'Submit';
 
@@ -146,7 +144,8 @@ const createForm = () => {
     form,
     createTitle(),
     createEmailContainer(),
-    createLocationContainer(),
+    createCountryContainer(),
+    createZipContainer(),
     createPasswordContainer(),
     createConfirmPasswordContainer(),
     createSubmitBtn()
