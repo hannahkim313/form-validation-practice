@@ -1,4 +1,4 @@
-import appendChildren from '../helper-functions';
+import appendChildren from '../logic/helper-functions';
 import createForm from './form';
 
 const createContent = () => {
