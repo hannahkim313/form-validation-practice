@@ -52,7 +52,7 @@ form {
 }
 
 form img {
-  width: 1rem;
+  width: 0.8rem;
 }
 
 form label img {
@@ -71,7 +71,7 @@ form input {
 }
 
 form .title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 form .email {
@@ -126,6 +126,7 @@ form .password .input-container {
 
 form .password .requirement-container {
   width: 100%;
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
