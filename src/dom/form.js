@@ -18,6 +18,7 @@ const createEmailContainer = () => {
   input.type = 'email';
   input.id = 'email';
   input.name = 'user-email';
+  input.setAttribute('required', '');
   const container = document.createElement('div');
   container.classList.add('email');
   appendChildren(container, label, input);
@@ -59,6 +60,7 @@ const createZipContainer = () => {
   input.type = 'text';
   input.id = 'zip';
   input.name = 'user-zip';
+  input.setAttribute('required', '');
   const container = document.createElement('div');
   container.classList.add('zip');
   appendChildren(container, label, input);
@@ -75,6 +77,7 @@ const createPasswordContainer = () => {
   input.type = 'text';
   input.id = 'password';
   input.name = 'user-password';
+  input.setAttribute('required', '');
   const inputContainer = document.createElement('div');
   inputContainer.classList.add('input-container');
   appendChildren(inputContainer, label, input);
@@ -119,6 +122,7 @@ const createConfirmPasswordContainer = () => {
   input.type = 'text';
   input.id = 'confirm-password';
   input.name = 'user-confirm-password';
+  input.setAttribute('required', '');
   const container = document.createElement('div');
   container.classList.add('confirm-password');
   appendChildren(container, label, input);
