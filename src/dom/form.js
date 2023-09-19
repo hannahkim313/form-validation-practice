@@ -61,6 +61,7 @@ const createZipContainer = () => {
   input.id = 'zip';
   input.name = 'user-zip';
   input.setAttribute('required', '');
+  input.setAttribute('pattern', '^(CH-)?\\d{4}$');
   const container = document.createElement('div');
   container.classList.add('zip');
   appendChildren(container, label, input);
