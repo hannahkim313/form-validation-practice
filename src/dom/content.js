@@ -1,9 +1,10 @@
-import appendChildren from '../logic/helper-functions';
 import createForm from './form';
 
 const createContent = () => {
+  const main = document.createElement('main');
+  main.appendChild(createForm());
   const body = document.querySelector('body');
-  appendChildren(body, createForm());
+  body.appendChild(main);
 };
 
 export default createContent;
