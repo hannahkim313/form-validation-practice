@@ -5,8 +5,8 @@
 :root {
   --color-text-1: #000000;
   --color-text-1-inverted: #ffffff;
-  --color-brand-1: #bff26d;
-  --color-brand-2: #ff7856;
+  --color-brand-1: #5fbf00;
+  --color-brand-2: #bc3b00;
   --color-neutral-1: #dfdfdf;
   --color-neutral-2: #cccccc;
   --color-neutral-3: #969696;
@@ -30,14 +30,24 @@ button:hover {
 }
 
 /******************************************************************************/
+/* Selectors for the main section start here.
+/******************************************************************************/
+
+main {
+  width: clamp(300px, 450px, 650px);
+  height: 100%;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+/******************************************************************************/
 /* Selectors for the form start here.
 /******************************************************************************/
 
 form {
-  width: clamp(300px, 450px, 650px);
-  height: 90%;
-  margin: 32px;
-  padding: 32px 48px;
+  width: 100%;
+  min-height: 100%;
+  padding: 32px;
   background-color: white;
   border-radius: 8px;
   box-shadow:
@@ -48,16 +58,6 @@ form {
   justify-content: space-evenly;
   align-items: center;
   gap: 16px;
-  overflow-y: auto;
-}
-
-form img {
-  width: 0.8rem;
-}
-
-form label img {
-  width: 0.5rem;
-  margin-top: 0.2rem;
 }
 
 form label {
@@ -66,12 +66,57 @@ form label {
   align-items: flex-start;
 }
 
-form input {
+form label img {
+  width: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+form input,
+form select {
   width: 100%;
+  outline: none;
+  background-color: white;
+  border: 1px solid var(--color-text-1);
+  border-radius: 2px;
+}
+
+form input:focus:valid {
+  border: 1px solid var(--color-brand-1);
+  border-radius: 2px;
+}
+
+form input:focus:invalid {
+  border: 1px solid var(--color-brand-2);
+  border-radius: 2px;
+}
+
+form input + img {
+  width: 1rem;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+form .error-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+form .error-container img {
+  width: 0.8rem;
+  margin-top: 0.15rem;
+}
+
+form .error-container p {
+  font-size: 0.8rem;
+  color: var(--color-brand-2);
 }
 
 form .title {
   font-size: 1.3rem;
+  text-align: center;
 }
 
 form .email {
@@ -81,6 +126,7 @@ form .email {
   justify-content: center;
   align-items: flex-start;
   gap: 4px;
+  position: relative;
 }
 
 form .country {
@@ -104,6 +150,7 @@ form .zip {
   justify-content: center;
   align-items: flex-start;
   gap: 4px;
+  position: relative;
 }
 
 form .password {
@@ -113,6 +160,12 @@ form .password {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  position: relative;
+}
+
+form .password input + img {
+  top: 33px;
+  bottom: 0;
 }
 
 form .password .input-container {
@@ -134,6 +187,10 @@ form .password .requirement-container {
   gap: 4px;
 }
 
+form .password .requirement-container img {
+  width: 0.8rem;
+}
+
 form .password .requirement-container > * {
   display: flex;
   justify-content: center;
@@ -148,6 +205,7 @@ form .confirm-password {
   justify-content: center;
   align-items: flex-start;
   gap: 4px;
+  position: relative;
 }
 
 form .submit {
