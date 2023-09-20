@@ -8,8 +8,8 @@
   --color-brand-1: #5fbf00;
   --color-brand-2: #bc3b00;
   --color-neutral-1: #dfdfdf;
-  --color-neutral-2: #cccccc;
-  --color-neutral-3: #969696;
+  --color-neutral-2: #d2d2d2;
+  --color-neutral-3: #c6c6c6;
 }
 
 body {
@@ -212,4 +212,13 @@ form .submit {
   padding: 4px 12px;
   background-color: var(--color-neutral-1);
   border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+form .submit:hover {
+  background-color: var(--color-neutral-2);
+}
+
+form .submit:active {
+  background-color: var(--color-neutral-3);
 }
