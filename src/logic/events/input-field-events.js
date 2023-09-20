@@ -38,10 +38,23 @@ const emitInputEvents = (e) => {
   inputFields[inputName](e);
 };
 
+const emitClickEvents = (e) => {
+  if (
+    e.target.closest('button') &&
+    e.target.closest('button').classList.contains('submit')
+  ) {
+    emitEmailEvents(e);
+    emitZipEvents(e);
+    emitPasswordEvents(e);
+    emitConfirmPasswordEvents(e);
+  }
+};
+
 const events = {
   focusin: emitFocusinEvents,
   focusout: emitFocusoutEvents,
   input: emitInputEvents,
+  click: emitClickEvents,
 };
 
 const emitInputFieldEvents = (e) => events[e.type](e);

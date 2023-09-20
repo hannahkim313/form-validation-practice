@@ -60,8 +60,10 @@ const emitInputEvents = () => {
 
 const emitClickEvents = (e) => {
   if (
-    e.target.closest('select') &&
-    e.target.closest('select').getAttribute('id') === 'country'
+    (e.target.closest('select') &&
+      e.target.closest('select').getAttribute('id') === 'country') ||
+    (e.target.closest('button') &&
+      e.target.closest('button').classList.contains('submit'))
   ) {
     emitInputEvents();
   }

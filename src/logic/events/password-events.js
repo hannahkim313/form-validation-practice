@@ -114,8 +114,18 @@ const emitInputEvents = () => {
   showValidRequirements();
 };
 
+const emitClickEvents = (e) => {
+  if (
+    e.target.closest('button') &&
+    e.target.closest('button').classList.contains('submit')
+  ) {
+    emitInputEvents();
+  }
+};
+
 const events = {
   input: emitInputEvents,
+  click: emitClickEvents,
 };
 
 const emitPasswordEvents = (e) => events[e.type](e);

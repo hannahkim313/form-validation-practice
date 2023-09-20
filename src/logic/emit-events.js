@@ -1,5 +1,6 @@
 import emitInputFieldEvents from './events/input-field-events';
 import emitCountryEvents from './events/country-events';
+import emitSubmitEvents from './events/submit-events';
 
 const emitEvents = () => {
   const body = document.querySelector('body');
@@ -36,6 +37,13 @@ const emitEvents = () => {
       e.target.closest('select').getAttribute('id') === 'country'
     ) {
       emitCountryEvents(e);
+    }
+
+    if (
+      e.target.closest('button') &&
+      e.target.closest('button').classList.contains('submit')
+    ) {
+      emitSubmitEvents(e);
     }
   });
 };
